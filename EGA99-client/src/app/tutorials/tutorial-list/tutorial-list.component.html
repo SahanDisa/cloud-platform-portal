@@ -1,0 +1,73 @@
+<div class="container">
+  <div> 
+    <h1 class="display-4">Event Handler</h1>
+    <p class="lead">Subscribe Custom Events and triggers as you wish </p>
+  </div>
+
+<div class="list row">
+    <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by title"
+          [(ngModel)]="title"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="searchTitle()">
+            Search
+          </button>
+        </div>
+      </div>
+      <button type="button" class="btn btn-outline-dark btn-lg">
+        <a href="/add" style="text-decoration: none;" >+ Create New</a>
+      </button>
+    </div>
+    <div class="col-md-6">
+      <h4>Event List</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let tutorial of tutorials; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveTutorial(tutorial, i)"
+        >
+          {{ tutorial.title }}
+        </li>
+      </ul>
+  
+      <button class="m-3 btn btn-sm btn-danger" (click)="removeAllTutorials()">
+        Remove All
+      </button>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentTutorial">
+        <h4>Event Info</h4>
+        <div>
+          <label><strong>Title:</strong></label> {{ currentTutorial.title }}
+        </div>
+        <div>
+          <label><strong>Description:</strong></label>
+          {{ currentTutorial.description }}
+        </div>
+        <div>
+          <label><strong>Status:</strong></label>
+          {{ currentTutorial.published ? "Published" : "Pending" }}
+        </div>
+  
+        <a class="badge badge-warning" href="/tutorials/{{ currentTutorial.id }}">
+          Show Event Info
+        </a>
+      </div>
+  
+      <div *ngIf="!currentTutorial">
+        <br />
+        <p>Please click on a Event...</p>
+        <h5>To see the further information about the event</h5>
+      </div>
+    </div>
+  </div>
+</div>

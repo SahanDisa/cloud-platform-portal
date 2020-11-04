@@ -1,0 +1,95 @@
+<div class="container">
+  <div> 
+    <h1 class="display-4">Event Publisher/Subscriber</h1>
+    <p class="lead">Subscribe Custom Events and triggers as you wish </p>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <!-- Event Subscribing -->
+      <div *ngIf="currentTutorial" class="edit-form">
+        <h4>Event Details</h4>
+        <form>
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input
+              type="text"
+              class="form-control"
+              id="title"
+              [(ngModel)]="currentTutorial.title"
+              name="title"
+            />
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input
+              type="text"
+              class="form-control"
+              id="description"
+              [(ngModel)]="currentTutorial.description"
+              name="description"
+            />
+          </div>
+      
+          <div class="form-group">
+            <label><strong>Status:</strong></label>
+            {{ currentTutorial.published ? "Published" : "Pending" }}
+            <label><strong>Subscribe :</strong></label>
+            {{ currentTutorial.published ? "Accept" : "Decline" }}
+          </div>
+    
+        </form>
+      
+        <button
+          class="badge badge-primary mr-2"
+          *ngIf="currentTutorial.published"
+          (click)="updatePublished(false)"
+        >
+          UnPublish
+        </button>
+        <button
+          *ngIf="!currentTutorial.published"
+          class="badge badge-primary mr-2"
+          (click)="updatePublished(true)"
+        >
+          Publish
+        </button>
+        <button class="badge badge-warning mr-2">
+          Subscribe
+        </button>
+        <button class="badge badge-danger mr-2" (click)="deleteTutorial()">
+          Delete
+        </button>
+      
+        <button type="submit" class="badge badge-success" (click)="updateTutorial()">
+          Update
+        </button>
+        <p>{{ message }}</p>
+
+        <!-- Source details -->
+        <h4>Used Topics</h4>
+        <ul class="list-group">
+          <li
+            class="list-group-item"
+            *ngFor="let topic of topics; let i = index"
+            [class.active]="i == currentIndex">
+            {{ topic.title }}
+          </li>
+        </ul>
+      </div>
+      
+      <div *ngIf="!currentTutorial">
+        <br />
+        <p>Cannot access this Event...</p>
+      </div>
+    </div>
+    <div class="col-6">
+      <h3>Add Event Sources</h3>
+      <button type="button" class="btn btn-outline-dark btn-lg">
+        <a href="/addtopic" style="text-decoration: none;">+ Add Resources</a>
+      </button>
+      <button type="button" class="btn btn-outline-dark btn-lg">
+        <a href="/topics" style="text-decoration: none;">View Resources</a>
+      </button>
+    </div>
+  </div>
+</div>

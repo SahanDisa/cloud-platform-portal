@@ -1,0 +1,23 @@
+<header class="jumbotron">
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+      <h1 class="display-4">My Profile</h1>
+      <p class="lead">My Details shown in here...</p>
+      <img src="../../assets/icon1.png" alt="profile pic" style="height: 150px; width: 150px;">
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-3">
+        <h3><b>Your Roles:</b></h3>
+        <p *ngFor="let item of roles">{{item}}</p>
+      </div>
+      <div class="col-9">
+        <h5><b>My Token is :</b></h5>
+        <p style="font-size: 15px;">{{token}}</p>
+        <h5><b>Username :</b> {{user}}</h5>
+      </div>
+    </div>
+  
+    
+</div>
+</header>
+

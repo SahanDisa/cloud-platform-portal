@@ -1,0 +1,52 @@
+
+<div class="jumbotron">
+    <h1 class="display-4">Data Usage and Distribution</h1>
+    <p class="lead">Data Information about the uploaded data...</p>
+    <hr class="my-4">
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <a class="btn btn-primary btn-lg" href="/dashboard" role="button">Learn More...</a>
+  </div>
+  <div class="row">
+      <div class="col-3">
+        <h6>File Cycle</h6>
+        <div>
+          <canvas baseChart 
+          [data]="doughnutChartData"
+          [labels]="doughnutChartLabels"
+          [chartType]="doughnutChartType">
+        </canvas>
+      </div>
+      </div>
+      <div class="col-6">
+        <h6>User Activity</h6>
+        <div>
+          <canvas baseChart 
+          [datasets]="radarChartData"
+          [options]="radarChartOptions"
+          [labels]="radarChartLabels"
+          [chartType]="radarChartType">
+        </canvas>
+      </div>
+      </div>
+      <div class="col-3">
+        <h6>Uploading Data</h6>
+        <div>
+          <canvas baseChart 
+              [datasets]="lineChartData" 
+              [labels]="lineChartLabels" 
+              [options]="lineChartOptions"
+              [colors]="lineChartColors" 
+              [legend]="lineChartLegend" 
+              [chartType]="lineChartType" 
+              [plugins]="lineChartPlugins">
+          </canvas>
+      </div>
+      </div>
+  </div>
+  <div style="height: 400px;">
+  
+  </div>
+  <!-- fixed bottom -->
+  <nav class="navbar fixed-bottom navbar-light bg-light">
+    <a class="navbar-brand" href="#">Event Grid Architecture</a>
+  </nav>

@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto">
+        <h1 class="display-4">EGA99 Portal</h1>
+        <p class="lead">Portal Service</p>
+  </div>
+
+  <form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search">
+    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+  </form>
+  <div class="row">
+      <div class="col-4">
+        <div class="service">
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action disabled">Web App</a>
+                <a  class="list-group-item list-group-item-action " (click) = "showInfo()">Storage Account</a>
+                <a href="/tutorials" class="list-group-item list-group-item-action ">Resource Group</a>
+                <a href="#" class="list-group-item list-group-item-action disabled">Virtual Machine</a>
+                <a href="#" class="list-group-item list-group-item-action disabled">Create Server</a>
+                <a href="#" class="list-group-item list-group-item-action disabled">Function App</a>
+              </div>
+          </div>
+      </div>
+      <div class="col-8" *ngIf="!showInfo()">
+        <div class="container">
+            <h5>Storage account needs to upload files via containers</h5>
+            <p>Step 01 : create storage account</p>
+            <p>Step 02 : create a container</p>
+            <p>Step 03 : Upload Files</p>
+        </div>
+      </div>
+  </div>
+</div>
